@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -16,23 +16,16 @@ const ImageCarousel = () => {
   return (
     <div className="carousel-wrapper">
       <Swiper
-        modules={[Pagination]}
-        spaceBetween={12}
+        modules={[Pagination, Autoplay]}
         slidesPerView={1}
-        pagination={{ clickable: true }}
         loop
-        breakpoints={{
-          300: { width: 300 },
-          400: { width: 360 },
-          500: { width: 420 },
-          640: { width: 520 },
-          768: { width: 620 },
-          1024: { width: 720 }
-        }}
+        autoplay={{ delay: 3500, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        spaceBetween={14}
       >
         {images.map((src, index) => (
           <SwiperSlide key={index}>
-            <img src={src} alt={`Slide ${index + 1}`} />
+            <img src={src} alt={`GlowNest slide ${index + 1}`} loading="lazy" />
           </SwiperSlide>
         ))}
       </Swiper>

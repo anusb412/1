@@ -1,73 +1,66 @@
-import "./App.css";
+import Hero1 from './assets/GlowNest/Hero1.jpeg'
+import Hero2 from './assets/GlowNest/Hero2.jpeg'
+import Hero3 from './assets/GlowNest/Hero3.jpeg'
 
-import Logo from "./assets/logo.png";
-import Header from './assets/GlowNest/Header.jpeg';
-import Featured1 from './assets/GlowNest/Featured1.jpeg';
-import Featured2 from './assets/GlowNest/Featured2.jpeg';
-import Footer from './assets/GlowNest/Footer.jpeg';
-import CTA from './assets/GlowNest/CTA.jpeg';
-
-import ImageCarousel from "./component/ImageCarousel";
-
-
-function App() {
+export default function App() {
   return (
-    <div className="container">
-      <header className="header">
-        <img src={Logo} alt="GlowNest Smart Home logo" />
-        <h1>GlowNest Smart Homes</h1>
-      </header>
+    <div className="bg-[var(--gn-black)] text-[var(--gn-white)] overflow-x-hidden">
+      <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6">
 
-      <section className="heroSection">
-        <ImageCarousel />
-        <h2>Smarter Living Starts at Home</h2>
-        <p>
-          GlowNest brings intelligent lighting, security, and comfort together
-          in one seamless smart home system.
-        </p>
-        <button>Get Started</button>
-      </section>
-
-      <section className="featuresSection">
-        <div className="featureCard">
-          <img src={Featured1} alt="" />
-          <h2>All-In-One Smart Control</h2>
-          <p>
-            Control your lights, temperature, and security from a single
-            intuitive app.
+        <img
+          src={Hero1}
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          alt=""
+        />
+        <div className="relative z-10 max-w-3xl">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+            Smarter Homes.<br /> Effortless Living.
+          </h1>
+          <p className="text-gray-300 mb-8">
+            Control lighting, climate, and security from one simple app — built for modern living.
           </p>
-        </div>
-
-        <div className="featureCard">
-          <img src={Featured2} alt="" />
-          <h2>Energy-Efficient Design</h2>
-          <p>
-            Reduce energy waste with automated schedules and smart sensors.
-          </p>
-        </div>
-
-        <div className="featureCard">
-          <img src={Featured1} alt="" />
-          <h2>Works With Your Life</h2>
-          <p>
-            Compatible with Alexa, Google Home, and most modern smart devices.
-          </p>
+          <button className="bg-[var(--gn-amber)] text-black px-10 py-4 rounded-xl font-bold hover:scale-105 transition">
+            Get Early Access
+          </button>
         </div>
       </section>
-
-      <section className="ctaSection">
-        <img src={CTA} alt="" />
-        <h2>Upgrade Your Home Today</h2>
-        <p>
-          Join thousands of homeowners creating safer, smarter, and more
-          efficient spaces with GlowNest.
-        </p>
-        <button className="secondary">Request a Demo</button>
+      <section className="bg-[var(--gn-gray)] py-28 px-6 relative">
+        <img
+          src={Hero3}
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          alt=""
+        />
+        <div className="relative max-w-6xl mx-auto grid md:grid-cols-3 gap-12 text-center">
+          {[
+            ["Instant Control", "Manage everything from your phone."],
+            ["Energy Saving", "Reduce power use automatically."],
+            ["Secure Living", "Real-time alerts & smart locks."]
+          ].map(([title, text]) => (
+            <div key={title} className="p-10 rounded-2xl bg-black/60 backdrop-blur shadow-2xl">
+              <h3 className="text-xl font-bold mb-3">{title}</h3>
+              <p className="text-gray-400">{text}</p>
+            </div>
+          ))}
+        </div>
       </section>
-
-      <footer className="footer" />
+      <section className="relative py-28 px-6 text-center">
+        <img
+          src={Hero2}
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          alt=""
+        />
+        <div className="relative z-10 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4">
+            Trusted by Smart Home Owners
+          </h2>
+          <p className="text-gray-300 mb-10">
+            Join thousands upgrading their homes with GlowNest.
+          </p>
+          <button className="bg-[var(--gn-amber)] text-black px-12 py-4 rounded-xl font-bold hover:scale-105 transition">
+            Join the Waitlist
+          </button>
+        </div>
+      </section>
     </div>
   );
 }
-
-export default App;
